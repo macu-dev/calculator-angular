@@ -2,14 +2,20 @@
   <div class="calculator">
     <header class="calculator__header">
       <h1>Calc</h1>
+      <p>{{btn}}</p>
       <div class="calculator__config">
         <p>THEME</p>
         <app-filters-theme></app-filters-theme>
       </div>
     </header>
-
+    <div class="calculator__screen">
+      <app-screen></app-screen>
+    </div>
     <div class="calculator__body">
-
+      <app-buttons (buttonTarget)="getNumber($event)"
+      *ngFor="let button of buttons"
+      class="{{button.value === 'RESET' || button.value === '=' ? 'button--big' : 'button'}}"
+      [button]="button"></app-buttons>
     </div>
   </div>
 </main>
