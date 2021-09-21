@@ -14,6 +14,7 @@ import { ButtonCal } from '../../models/ButtonCal.interface';
 export class ButtonsComponent implements OnInit {
   @Input() button!: ButtonCal;
   @Output () buttonTarget: EventEmitter<string | number> = new EventEmitter();
+  digits = '';
 
 
   constructor() { }
@@ -26,12 +27,26 @@ export class ButtonsComponent implements OnInit {
     }
   }
 
-  getNumber(){
-    this.buttonTarget.emit(this.button.value);
+  calculate(){
+
   }
+
+
+
+  getNumber(event: Event){
+    let number = (event.target as HTMLButtonElement).dataset.value || '';
+    this.buttonTarget.emit(number);
+  }
+
+  // getvalue(event: Event){
+  //   console.log((event.target as HTMLButtonElement).dataset);
+  //   console.log(event.target);
+  // }
 
   ngOnInit(): void {
 
   }
+
+
 
 }

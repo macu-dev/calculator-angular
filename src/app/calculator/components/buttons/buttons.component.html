@@ -1,4 +1,4 @@
 <button [attr.data-value]="button.value"
- class="{{isNumber(button.value)}} button-cal" #btn (click)="getNumber()">{{button.value}}</button>
+ class="{{isNumber(button.value)}} button-cal" #btn (click)="getNumber($event)">{{button.value}}</button>
 
 

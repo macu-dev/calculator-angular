@@ -9,6 +9,7 @@ import { ButtonCal } from 'src/app/calculator/models/ButtonCal.interface';
 })
 export class CalculatorComponent implements OnInit {
    btn: string | number = '';
+   digits = '';
    buttons:ButtonCal[] = [
     {value: 7},
     {value: 8},
@@ -34,9 +35,33 @@ export class CalculatorComponent implements OnInit {
   constructor() { }
 
 
+  verificationValue(value: string | number){
+    switch (value) {
+      case '0':
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+      case '7':
+      case '8':
+      case '9':
+      case '.':
+        this.digits += value;
+        console.log('hola', this.digits);
+        break;
+      default:
+        break;
+    }
+
+  }
   getNumber(btn: string | number){
     this.btn = btn;
+    this.verificationValue(this.btn);
   }
+
+
   ngOnInit(): void {
   }
 
